@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+    <button onclick="hevent()">点击</button>
+    <iframe id="child" src="http://localhost:8080/index.html" width="100%" height="800px">
+
+    </iframe>
+    <script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+    <script>
+        function hevent(){
+            var iframe = document.getElementById('child').contentWindow;
+            iframe.saveInfo({ nem : 'test'});
+        }
+        function saveMsg(data,callback) {
+            console.log(data);
+            callback('我执行了')
+        }
+    </script>
+</body>
+</html>
